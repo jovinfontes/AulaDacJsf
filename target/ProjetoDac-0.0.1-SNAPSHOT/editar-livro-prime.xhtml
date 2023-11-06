@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{cadastroLivroBean.idLivro}" />
+		<f:viewAction action="#{cadastroLivroBean.carregarEdicao}" />
+		<f:viewAction action="#{cadastroLivroBean.preparaListaDeEditoras}" />
+	</f:metadata>
+	<ui:define name="titulo">Editar livro</ui:define>
+	<ui:define name="corpo">
+		<h:form id="frm">
+			<p:messages showDetail="false" showSummary="true" />
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Título do livro" />
+				<p:inputText size="60" value="#{cadastroLivroBean.livro.titulo}"
+					label="Título" />
+				<h:outputLabel value="Data de lançamento" />
+				<p:inputText size="12"
+					value="#{cadastroLivroBean.livro.dataDeLancamento}"
+					label="Data de lançamento">
+					<f:convertDateTime pattern="dd/MM/yyyy"
+						timeZone="America/Sao_Paulo" />
+				</p:inputText>
+				<h:outputLabel value="Editora" />
+				<p:selectOneMenu value="#{cadastroLivroBean.livro.editora}"
+					label="Editora">
+					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+					<f:selectItems value="#{cadastroLivroBean.editoras}" var="editora"
+						itemValue="#{editora}" itemLabel="#{editora.nomeFantasia}" />
+				</p:selectOneMenu>
+				<h:outputLabel />
+				<h:commandButton value="Salvar" action="#{cadastroLivroBean.salvar}" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

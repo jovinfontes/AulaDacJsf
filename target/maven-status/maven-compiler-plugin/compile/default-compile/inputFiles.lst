@@ -1,0 +1,13 @@
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/view/managedbeans/ConsultaLivrosBean.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/view/managedbeans/CadastroEditoraBean.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/model/entities/Editora.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/model/entities/Livro.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/model/utils/CriarTabela.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/model/utils/JPAUtil.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/model/daos/EditoraDAO.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/view/managedbeans/CadastroLivroBean.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/controller/services/LivroService.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/model/daos/LivroDAO.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/view/managedbeans/ConsultaEditorasBean.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/controller/services/EditoraService.java
+/Users/cfontes/eclipse-workspace/ProjetoDac/src/main/java/br/com/develop/view/converters/EditoraConverter.java

@@ -1,0 +1,13 @@
+br/com/develop/controller/services/EditoraService.class
+br/com/develop/view/managedbeans/ConsultaLivrosBean.class
+br/com/develop/view/managedbeans/CadastroEditoraBean.class
+br/com/develop/model/daos/LivroDAO.class
+br/com/develop/model/daos/EditoraDAO.class
+br/com/develop/view/converters/EditoraConverter.class
+br/com/develop/model/entities/Editora.class
+br/com/develop/view/managedbeans/ConsultaEditorasBean.class
+br/com/develop/controller/services/LivroService.class
+br/com/develop/model/utils/CriarTabela.class
+br/com/develop/model/utils/JPAUtil.class
+br/com/develop/view/managedbeans/CadastroLivroBean.class
+br/com/develop/model/entities/Livro.class

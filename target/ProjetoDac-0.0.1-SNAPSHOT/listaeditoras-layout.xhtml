@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:metadata>
+		<f:viewAction action="#{consultaEditorasBean.consultar}" />
+	</f:metadata>
+	<ui:define name="titulo">Lista de editoras</ui:define>
+	<ui:define name="corpo">
+		<h2>Editoras</h2>
+		<h:form>
+			<p:dataTable value="#{consultaEditorasBean.editoras}" var="editora"
+				border="1" cellspacing="0" cellpadding="2">
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Local de origem" />
+					</f:facet>
+					<h:outputText value="#{editora.localDeOrigem}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Nome fantasia" />
+					</f:facet>
+					<h:outputText value="#{editora.nomeFantasia}" />
+				</p:column>
+
+			</p:dataTable>
+			<p:commandLink value="Ir para cadastro de editoras"
+				action="cadastro-editora-layout?faces-redirect=true" />
+			<br />
+			<p:commandLink value="Home" action="index?faces-redirect=true" />
+		</h:form>
+	</ui:define>
+</ui:composition>

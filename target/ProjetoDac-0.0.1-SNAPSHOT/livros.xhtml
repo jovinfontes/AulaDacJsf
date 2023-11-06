@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Livros DAC</title>
+	
+</h:head>
+<f:metadata>
+	<f:viewAction action="#{consultaLivrosBean.consultar}" />
+</f:metadata>
+<h:body>
+<h2>Livros</h2>
+	<h:form>
+		<h:dataTable value="#{consultaLivrosBean.livros}"
+			var="livro" border="1" cellspacing="0" cellpadding="2">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Título" />
+				</f:facet>
+				<h:outputText value="#{livro.titulo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Data de lançamento" />
+				</f:facet>
+				<h:outputText value="#{livro.dataDeLancamento}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Editora" />
+				</f:facet>
+				<h:outputText value="#{livro.editora.nomeFantasia}" />
+			</h:column>
+			
+		</h:dataTable>
+		
+		<h:commandLink value="Ir para cadastro de livros"
+				action="cadastro-livro?faces-redirect=true" />
+				<br/>
+		<h:commandLink value="Home"
+				action="index?faces-redirect=true" />
+	</h:form>
+</h:body>
+
+</html>
