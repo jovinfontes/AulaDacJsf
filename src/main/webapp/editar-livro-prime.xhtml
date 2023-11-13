@@ -5,13 +5,13 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui">
 
-	<f:metadata>
-		<f:viewParam name="id" value="#{cadastroLivroBean.idLivro}" />
-		<f:viewAction action="#{cadastroLivroBean.carregarEdicao}" />
-		<f:viewAction action="#{cadastroLivroBean.preparaListaDeEditoras}" />
-	</f:metadata>
+<!-- 	<f:metadata> -->
+<!-- 		<o:viewParam name="id" value="#{cadastroLivroBean.livro}" /> -->
+<!-- 		<f:viewAction action="#{cadastroLivroBean.preparaListaDeEditoras}" /> -->
+<!-- 	</f:metadata> -->
 	<ui:define name="titulo">Editar livro</ui:define>
 	<ui:define name="corpo">
 		<h:form id="frm">
@@ -36,7 +36,7 @@
 						itemValue="#{editora}" itemLabel="#{editora.nomeFantasia}" />
 				</p:selectOneMenu>
 				<h:outputLabel value="Salvar" />
-				<p:commandButton icon="ui-icon-update" action="#{cadastroLivroBean.salvar}" update="@form"/>
+				<p:commandButton icon="ui-icon-update" action="#{cadastroLivroBean.salvar}" update="@frm"/>
 			</p:panelGrid>
 		</h:form>
 	</ui:define>

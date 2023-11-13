@@ -14,32 +14,32 @@
 	<ui:define name="corpo">
 		<h2>Cadastro de livro</h2>
 		<h:form id="frm">
-			<h:messages showDetail="false" showSummary="true" />
-			<h:panelGrid columns="2">
+			<p:messages showDetail="false" showSummary="true" />
+			<p:panelGrid columns="2">
 				<h:outputLabel value="Título do livro" />
-				<h:inputText size="60" value="#{cadastroLivroBean.livro.titulo}"
+				<p:inputText size="60" value="#{cadastroLivroBean.livro.titulo}"
 					label="Título" />
 				<h:outputLabel value="Data de lançamento" />
-				<h:inputText size="12"
+				<p:inputText size="12"
 					value="#{cadastroLivroBean.livro.dataDeLancamento}"
 					label="Data de lançamento">
 					<f:convertDateTime pattern="dd/MM/yyyy"
 						timeZone="America/Sao_Paulo" />
-				</h:inputText>
+				</p:inputText>
 				<h:outputLabel value="Editora" />
-				<h:selectOneMenu value="#{cadastroLivroBean.livro.editora}"
+				<p:selectOneMenu value="#{cadastroLivroBean.livro.editora}"
 					label="Editora">
 					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
 					<f:selectItems value="#{cadastroLivroBean.editoras}" var="editora"
 						itemValue="#{editora}" itemLabel="#{editora.nomeFantasia}" />
-				</h:selectOneMenu>
+				</p:selectOneMenu>
 				<h:outputLabel />
 				<h:commandButton value="Salvar" action="#{cadastroLivroBean.salvar}" />
 
 				<h:commandLink value="Ir para os livros"
 					action="listalivros-layout?faces-redirect=true" />
 
-			</h:panelGrid>
+			</p:panelGrid>
 		</h:form>
 	</ui:define>
 

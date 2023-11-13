@@ -14,22 +14,22 @@
 	<ui:define name="corpo">
 		<h2>Editoras</h2>
 		<h:form>
-			<h:dataTable value="#{consultaEditorasBean.editoras}" var="editora"
+			<p:dataTable value="#{consultaEditorasBean.editoras}" var="editora"
 				border="1" cellspacing="0" cellpadding="2">
-				<h:column>
+				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Local de origem" />
 					</f:facet>
 					<h:outputText value="#{editora.localDeOrigem}" />
-				</h:column>
-				<h:column>
+				</p:column>
+				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Nome fantasia" />
 					</f:facet>
 					<h:outputText value="#{editora.nomeFantasia}" />
-				</h:column>
+				</p:column>
 
-			</h:dataTable>
+			</p:dataTable>
 			<p:commandLink value="Ir para cadastro de editoras"
 				action="cadastro-editora-layout?faces-redirect=true" />
 			<br />

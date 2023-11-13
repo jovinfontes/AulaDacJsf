@@ -10,10 +10,9 @@ import br.com.develop.model.daos.EditoraDAO;
 import br.com.develop.model.entities.Editora;
 import br.com.develop.model.utils.JPAUtil;
 
-@FacesConverter(forClass = Editora.class)
+@FacesConverter(forClass = Editora.class, value="editoraConverter")
 public class EditoraConverter implements Converter {
 
-	@SuppressWarnings("removal")
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		Editora retorno = null;

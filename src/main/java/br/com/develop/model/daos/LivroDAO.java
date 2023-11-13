@@ -3,6 +3,7 @@ package br.com.develop.model.daos;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -13,6 +14,7 @@ public class LivroDAO implements Serializable {
 	
 	private EntityManager manager;
 
+	@Inject
 	public LivroDAO(EntityManager manager) {
 		this.manager = manager;
 	}
@@ -30,9 +32,14 @@ public class LivroDAO implements Serializable {
 		return manager.find(Livro.class, id);
 	}
 	
+	public void remover(Livro livro) {
+		this.manager.remove(livro);
+	}
+	
 	public List<Livro> todos() {
 		TypedQuery<Livro> query = manager.createQuery("FROM Livro", Livro.class);
 		return query.getResultList();
 	}
+
 
 }

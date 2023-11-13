@@ -13,9 +13,21 @@
 	<ui:define name="titulo">Lista de livros</ui:define>
 	<ui:define name="corpo">
 		<h2>Livros</h2>
-		<h:form>
-			<p:dataTable value="#{consultaLivrosBean.livros}" var="livro"
-				border="1" cellspacing="0" cellpadding="2">
+		<h:form id="formListagem">
+			<p:messages showDetail="false" showSummary="true" />
+			<!-- 		    <p:growl id="mensagem" /> -->
+			<p:dataTable id="tabela" value="#{consultaLivrosBean.livros}"
+				var="livro" selection="#{consultaLivrosBean.livro}"
+				selectionMode="single" paginator="true" rows="10"
+				rowKey="#{livro.titulo}"
+				paginatorTemplate="{CurrentPageReport}		
+									{FirstPageLink}	
+									{PreviousPageLink}	{PageLinks}	
+									{NextPageLink}	{LastPageLink}	
+									{RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" style="width:	70%" lazy="true">
+				<p:ajax event="rowSelect" update=":livroDialogForm"
+					oncomplete="PF('livroDialog').show()" />
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Título" />
@@ -26,7 +38,10 @@
 					<f:facet name="header">
 						<h:outputText value="Data de lançamento" />
 					</f:facet>
-					<h:outputText value="#{livro.dataDeLancamento}" />
+					<h:outputText value="#{livro.dataDeLancamento}">
+						<f:convertDateTime pattern="dd/MM/yyyy"
+							timeZone="America/Sao_Paulo" />
+					</h:outputText>
 				</p:column>
 				<p:column>
 					<f:facet name="header">
@@ -34,15 +49,20 @@
 					</f:facet>
 					<h:outputText value="#{livro.editora.nomeFantasia}" />
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="Detalhes" />
-					</f:facet>
-					<p:button icon="ui-icon-pencil" title="Editar"
-						outcome="editar-livro-prime.xhtml">
-						<f:param name="id" value="#{livro.id}"/>
-					</p:button>
-				</p:column>
+				<!-- 				<p:column> -->
+				<!-- 					<f:facet name="header"> -->
+				<!-- 						<h:outputText value="Detalhes" /> -->
+				<!-- 					</f:facet> -->
+				<!-- <p:button icon="ui-icon-pencil" title="Editar" -->
+				<!-- 	outcome="/editar-livro-prime"> -->
+				<!--    <f:param name="id" value="#{livro}"/> -->
+				<!-- </p:button> -->
+				<!--<p:commandButton value="Enviar"  -->
+				<!--actionListener="#{consultaLivrosBean.salvar(livro)}"> -->
+				<!-- <f:setPropertyActionListener value="{livro}" -->
+				<!-- 	target="#{consultaLivrosBean.livro}" /> -->
+				<!--</p:commandButton> -->
+				<!-- 				</p:column> -->
 
 			</p:dataTable>
 
@@ -51,5 +71,36 @@
 			<br />
 			<p:commandLink value="Home" action="index?faces-redirect=true" />
 		</h:form>
+
+		<p:dialog widgetVar="livroDialog" modal="true" header="Livro"
+			showEffect="fade" hideEffect="fade" resizable="false">
+			<h:form id="livroDialogForm">
+				<p:panelGrid columns="2" id="painel" style="width:	40%">
+					<h:outputLabel value="Título do livro" />
+					<p:inputText size="16" value="#{consultaLivrosBean.livro.titulo}"
+						label="Título" />
+					<h:outputLabel value="Data de lançamento" />
+					<p:inputText size="8"
+						value="#{consultaLivrosBean.livro.dataDeLancamento}"
+						label="Data de lançamento">
+						<f:convertDateTime pattern="dd/MM/yyyy"
+							timeZone="America/Sao_Paulo" />
+					</p:inputText>
+					<h:outputLabel value="Editora" />
+					<p:selectOneMenu value="#{consultaLivrosBean.livro.editora}"
+						label="Editora" filter="true" filterMatchMode="contains"
+						id="editora" converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+						<f:selectItems value="#{consultaLivrosBean.editoras}"
+							var="editora" itemValue="#{editora}"
+							itemLabel="#{editora.nomeFantasia}" />
+					</p:selectOneMenu>
+					<h:outputLabel value="Salvar" />
+					<p:commandButton icon="ui-icon-update"
+						action="#{consultaLivrosBean.salvar}"
+						update=":livroDialogForm:painel :formListagem:tabela" />
+				</p:panelGrid>
+			</h:form>
+		</p:dialog>
 	</ui:define>
 </ui:composition>

@@ -3,6 +3,7 @@ package br.com.develop.model.daos;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -13,6 +14,7 @@ public class EditoraDAO implements Serializable {
 	
 	private EntityManager manager;
 
+	@Inject
 	public EditoraDAO(EntityManager manager) {
 		this.manager = manager;
 	}
@@ -23,6 +25,10 @@ public class EditoraDAO implements Serializable {
 	
 	public Editora porId(Long id) {
 		return manager.find(Editora.class, id);
+	}
+	
+	public void remover(Editora editora) {
+		this.manager.remove(editora);
 	}
 	
 	public List<Editora> todas() {

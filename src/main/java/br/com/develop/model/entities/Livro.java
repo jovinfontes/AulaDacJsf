@@ -27,7 +27,7 @@ public class Livro implements Serializable {
 	@JoinColumn(name = "editora_id")
 	private Editora editora = new Editora();
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

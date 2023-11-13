@@ -6,11 +6,9 @@
 	<artifactId>ProjetoDac</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
 	<build>
 		<!-- Nome do projeto empacotado -->
 		<finalName>ProjetoDac</finalName>
-
 		<!-- Plugins -->
 		<plugins>
 			<!-- Compilador -->
@@ -25,7 +23,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 		<!-- Núcleo do Hibernate -->
 		<dependency>
@@ -51,13 +48,11 @@
 			<artifactId>javax.faces</artifactId>
 			<version>2.2.12</version>
 		</dependency>
-
 		<!-- PrimeFaces (biblioteca de componentes)-->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>7.0</version>
-			<scope>compile</scope>
+			<version>8.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
 		<dependency>
@@ -65,22 +60,29 @@
 			<artifactId>validation-api</artifactId>
 			<version>1.1.0.Final</version>
 		</dependency>
-
+		<!-- OmniFaces (utilitarios para JSF) -->
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>2.0</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-	
 		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
-			<version>2.22.1</version>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>2.2.1.Final</version>
 		</dependency>
-
-	
+		<!-- https://mvnrepository.com/artifact/org.jboss/jandex -->
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jandex</artifactId>
+			<version>2.1.1.Final</version>
+		</dependency>
 	</dependencies>
-
-
 </project>
