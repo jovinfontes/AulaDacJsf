@@ -6,9 +6,9 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	<f:metadata>
-		<f:viewAction action="#{cadastroLivroBean.preparaListaDeEditoras}" />
-	</f:metadata>
+<!-- 	<f:metadata> -->
+<!-- 		<f:viewAction action="#{cadastroLivroBean.preparaListaDeEditoras}" /> -->
+<!-- 	</f:metadata> -->
 	
 	<ui:define name="titulo">Cadastro de livros</ui:define>
 	<ui:define name="corpo">
@@ -28,7 +28,8 @@
 				</p:inputText>
 				<h:outputLabel value="Editora" />
 				<p:selectOneMenu value="#{cadastroLivroBean.livro.editora}"
-					label="Editora">
+					label="Editora"
+					id="editora" converter="omnifaces.SelectItemsConverter">
 					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
 					<f:selectItems value="#{cadastroLivroBean.editoras}" var="editora"
 						itemValue="#{editora}" itemLabel="#{editora.nomeFantasia}" />

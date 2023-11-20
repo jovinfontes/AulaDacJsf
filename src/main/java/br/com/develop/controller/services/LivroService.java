@@ -1,6 +1,7 @@
 package br.com.develop.controller.services;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -34,6 +35,10 @@ public class LivroService implements Serializable {
 			throw new BusinessException("Não é possível excluir o Livro!");
 		}
 		this.livroDAO.remover(livro);
+	}
+	
+	public List<String> buscarPorTitulo(String titulo) {
+		return this.livroDAO.descricoesQueContem(titulo);
 	}
 
 }

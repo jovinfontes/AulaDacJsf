@@ -53,6 +53,11 @@ public class CadastroLivroBean implements Serializable {
 		} 
 	}
 	
+	
+	public List<String> pesquisarTitulos(String titulo) {
+		return this.livroService.buscarPorTitulo(titulo);
+	}
+	
 	public void listarLivros() {
 		this.livros = this.livroDAO.todos();
 	}

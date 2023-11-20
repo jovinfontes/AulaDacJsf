@@ -44,6 +44,14 @@ public class LivroDAO implements Serializable {
 		TypedQuery<Livro> query = manager.createQuery("FROM Livro", Livro.class);
 		return query.getResultList();
 	}
+	
+	public List<String> descricoesQueContem(String titulo) {
+        TypedQuery<String> query = manager.createQuery(
+                "SELECT DISTINCT titulo FROM Livro " + "WHERE UPPER(titulo) LIKE UPPER(:titulo)",
+                String.class);
+        query.setParameter("titulo", "%" + titulo + "%");
+        return query.getResultList();
+    }
 
 
 }

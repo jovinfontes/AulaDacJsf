@@ -4,6 +4,7 @@ br/com/develop/view/managedbeans/ConsultaLivrosBean.class
 br/com/develop/controller/exceptions/BusinessException.class
 br/com/develop/view/managedbeans/CadastroEditoraBean.class
 br/com/develop/model/daos/LivroDAO.class
+br/com/develop/view/managedbeans/UsuarioBean.class
 br/com/develop/model/daos/EditoraDAO.class
 br/com/develop/view/converters/EditoraConverter.class
 br/com/develop/model/entities/Editora.class
@@ -13,6 +14,7 @@ br/com/develop/model/utils/Transactional.class
 br/com/develop/model/utils/CriarTabela.class
 br/com/develop/model/utils/JPAUtil.class
 br/com/develop/model/utils/EntityManagerProducer.class
+br/com/develop/controller/filters/AuthorizingFilter.class
 br/com/develop/view/managedbeans/CadastroLivroBean.class
 br/com/develop/model/utils/TransactionInterceptor.class
 br/com/develop/model/entities/Livro.class
