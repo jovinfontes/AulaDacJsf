@@ -20,11 +20,16 @@ public class EditoraDAO implements Serializable {
 	}
 	
 	public void addEditora(Editora editora) {
-		manager.persist(editora);
+		//manager.persist(editora);
+		this.guardar(editora);
 	}
 	
 	public Editora porId(Long id) {
 		return manager.find(Editora.class, id);
+	}
+	
+	public Editora guardar(Editora editora) {
+		return this.manager.merge(editora);
 	}
 	
 	public void remover(Editora editora) {

@@ -24,6 +24,10 @@ public class LivroDAO implements Serializable {
 		this.guardar(livro);
 	}
 	
+	public Livro porId(Long id) {
+		return this.manager.find(Livro.class, id);
+	}
+	
 	public Livro guardar(Livro livro) {
 		return manager.merge(livro);
 	}

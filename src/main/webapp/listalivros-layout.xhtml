@@ -7,9 +7,9 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-	<f:metadata>
-		<f:viewAction action="#{consultaLivrosBean.consultar}" />
-	</f:metadata>
+<!-- 	<f:metadata> -->
+<!-- 		<f:viewAction action="#{consultaLivrosBean.consultar}" /> -->
+<!-- 	</f:metadata> -->
 	<ui:define name="titulo">Lista de livros</ui:define>
 	<ui:define name="corpo">
 		<h2>Livros</h2>
@@ -17,7 +17,7 @@
 			<p:messages showDetail="false" showSummary="true" />
 			<!-- 		    <p:growl id="mensagem" /> -->
 			<p:dataTable id="tabela" value="#{consultaLivrosBean.livros}"
-				var="livro" selection="#{consultaLivrosBean.livro}"
+				var="livro" selection="#{consultaLivrosBean.livroSelecionado}"
 				selectionMode="single" paginator="true" rows="10"
 				rowKey="#{livro.titulo}"
 				paginatorTemplate="{CurrentPageReport}		
@@ -77,17 +77,17 @@
 			<h:form id="livroDialogForm">
 				<p:panelGrid columns="2" id="painel" style="width:	40%">
 					<h:outputLabel value="Título do livro" />
-					<p:inputText size="16" value="#{consultaLivrosBean.livro.titulo}"
+					<p:inputText size="16" value="#{consultaLivrosBean.livroSelecionado.titulo}"
 						label="Título" />
 					<h:outputLabel value="Data de lançamento" />
 					<p:inputText size="8"
-						value="#{consultaLivrosBean.livro.dataDeLancamento}"
+						value="#{consultaLivrosBean.livroSelecionado.dataDeLancamento}"
 						label="Data de lançamento">
 						<f:convertDateTime pattern="dd/MM/yyyy"
 							timeZone="America/Sao_Paulo" />
 					</p:inputText>
 					<h:outputLabel value="Editora" />
-					<p:selectOneMenu value="#{consultaLivrosBean.livro.editora}"
+					<p:selectOneMenu value="#{consultaLivrosBean.livroSelecionado.editora}"
 						label="Editora" filter="true" filterMatchMode="contains"
 						id="editora" converter="omnifaces.SelectItemsConverter">
 						<f:selectItem itemLabel="Selecione" noSelectionOption="true" />

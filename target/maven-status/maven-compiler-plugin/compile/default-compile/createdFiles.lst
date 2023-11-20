@@ -1,7 +1,7 @@
 br/com/develop/view/converters/LivroConverter.class
 br/com/develop/controller/services/EditoraService.class
-br/com/develop/controller/services/BusinessException.class
 br/com/develop/view/managedbeans/ConsultaLivrosBean.class
+br/com/develop/controller/exceptions/BusinessException.class
 br/com/develop/view/managedbeans/CadastroEditoraBean.class
 br/com/develop/model/daos/LivroDAO.class
 br/com/develop/model/daos/EditoraDAO.class

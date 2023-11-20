@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import br.com.develop.controller.exceptions.BusinessException;
 import br.com.develop.model.daos.EditoraDAO;
 import br.com.develop.model.entities.Editora;
 import br.com.develop.model.utils.Transactional;
@@ -14,16 +15,12 @@ public class EditoraService implements Serializable {
 	@Inject
 	private EditoraDAO editoraDAO;
 
-	public EditoraService(EditoraDAO editoraDAO) {
-		this.editoraDAO = editoraDAO;
-	}
-	
 	@Transactional
-	public void salvar(Editora editora)throws BusinessException {
+	public void salvar(Editora editora) throws BusinessException {
 		if (editora == null) {
-			throw new BusinessException("Não foi possível salvar o Livro.");
+			throw new BusinessException("Não foi possível salvar a Editora.");
 		}
-		this.editoraDAO.addEditora(editora);
+		this.editoraDAO.guardar(editora);
 	}
 	
 	@Transactional
