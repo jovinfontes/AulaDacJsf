@@ -10,14 +10,19 @@
 	<div id="login-dialog">
 		<h1>Login</h1>
 		<h:form id="frm">
-			<p:messages autoUpdate="true" />
-			<h:panelGrid columns="2" styleClass="grid-login">
+<!-- 			<p:messages autoUpdate="true" /> -->
+			<h:panelGrid columns="3" styleClass="grid-login">
 				<p:outputLabel value="Usuário" for="usuario" />
-				<p:inputText id="usuario" size="20" value="#{usuarioBean.nomeUsuario}" />
+				<p:inputText id="usuario" size="20" value="#{usuarioBean.nomeUsuario}" 
+				requiredMessage="Campo obrigatório" required="true"/>
+				<p:message for="usuario"/>
 				<p:outputLabel value="Senha" for="senha" />
-				<p:password id="senha" size="20" value="#{usuarioBean.senha}" />
+				<p:password id="senha" size="20" value="#{usuarioBean.senha}" 
+				requiredMessage="Campo obrigatório" required="true"/>
+				<p:message for="senha"/>
 				<p:outputLabel />
 				<p:commandButton value="Acessar" action="#{usuarioBean.login}" />
+				<p:outputLabel />
 			</h:panelGrid>
 		</h:form>
 	</div>

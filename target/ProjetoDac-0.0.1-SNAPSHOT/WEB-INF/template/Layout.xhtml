@@ -13,6 +13,8 @@
 	<header>
 		Projeto DAC
 		<div style="float: right; margin-right: 20px; margin-top: 8px">
+		#{usuarioBean.nomeUsuario} <br/>
+		#{usuarioBean.dataLogin}
 		</div>
 	</header>
 	<h:form>
@@ -36,6 +38,6 @@
 	<div id="conteudo">
 		<ui:insert name="corpo" />
 	</div>
-	<footer> Editora de Livros SA </footer>
+	<footer> Editora de Livros SA | <p:commandButton value="Sair" action="#{usuarioBean.sair}"/></footer>
 </h:body>
 </html>
